@@ -1,0 +1,957 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": "-- Grafana --",
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "gnetId": null,
+  "graphTooltip": 0,
+  "id": 2,
+  "iteration": 1617007013063,
+  "links": [],
+  "panels": [
+    {
+      "datasource": null,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 14,
+        "x": 5,
+        "y": 0
+      },
+      "id": 16,
+      "options": {
+        "content": "\n<p style=\"font-size:500%;color:red;text-align:center;\">DATA LOGGER</p>\n",
+        "mode": "html"
+      },
+      "pluginVersion": "7.4.3",
+      "targets": [
+        {
+          "format": "time_series",
+          "group": [],
+          "metricColumn": "none",
+          "rawQuery": false,
+          "rawSql": "SELECT\n  Datetime AS \"time\",\n  ID\nFROM ESP32\nWHERE\n  $__timeFilter(Datetime)\nORDER BY Datetime",
+          "refId": "A",
+          "select": [
+            [
+              {
+                "params": [
+                  "ID"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "table": "ESP32",
+          "timeColumn": "Datetime",
+          "timeColumnType": "timestamp",
+          "where": [
+            {
+              "name": "$__timeFilter",
+              "params": [],
+              "type": "macro"
+            }
+          ]
+        }
+      ],
+      "title": "",
+      "transparent": true,
+      "type": "text"
+    },
+    {
+      "datasource": null,
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {},
+          "mappings": [],
+          "max": 35,
+          "min": 15,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "#EAB839",
+                "value": 25
+              },
+              {
+                "color": "red",
+                "value": 30
+              }
+            ]
+          },
+          "unit": "celsius"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 6,
+        "x": 0,
+        "y": 4
+      },
+      "id": 10,
+      "options": {
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "/^Temperature$/",
+          "values": false
+        },
+        "showThresholdLabels": false,
+        "showThresholdMarkers": true,
+        "text": {}
+      },
+      "pluginVersion": "7.4.3",
+      "targets": [
+        {
+          "format": "time_series",
+          "group": [],
+          "metricColumn": "none",
+          "rawQuery": false,
+          "rawSql": "SELECT\n  Datetime AS \"time\",\n  Temperature\nFROM ESP32\nWHERE\n  $__timeFilter(Datetime)\nORDER BY Datetime",
+          "refId": "A",
+          "select": [
+            [
+              {
+                "params": [
+                  "Temperature"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "table": "ESP32",
+          "timeColumn": "Datetime",
+          "timeColumnType": "timestamp",
+          "where": [
+            {
+              "name": "$__timeFilter",
+              "params": [],
+              "type": "macro"
+            }
+          ]
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Temperature",
+      "transparent": true,
+      "type": "gauge"
+    },
+    {
+      "datasource": null,
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {},
+          "mappings": [],
+          "max": 100,
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "#EAB839",
+                "value": 50
+              },
+              {
+                "color": "red",
+                "value": 75
+              }
+            ]
+          },
+          "unit": "humidity"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 6,
+        "x": 6,
+        "y": 4
+      },
+      "id": 12,
+      "options": {
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showThresholdLabels": false,
+        "showThresholdMarkers": true,
+        "text": {}
+      },
+      "pluginVersion": "7.4.3",
+      "targets": [
+        {
+          "format": "time_series",
+          "group": [],
+          "metricColumn": "none",
+          "rawQuery": false,
+          "rawSql": "SELECT\n  Datetime AS \"time\",\n  Humidity\nFROM ESP32\nWHERE\n  $__timeFilter(Datetime)\nORDER BY Datetime",
+          "refId": "A",
+          "select": [
+            [
+              {
+                "params": [
+                  "Humidity"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "table": "ESP32",
+          "timeColumn": "Datetime",
+          "timeColumnType": "timestamp",
+          "where": [
+            {
+              "name": "$__timeFilter",
+              "params": [],
+              "type": "macro"
+            }
+          ]
+        }
+      ],
+      "title": "Humidity",
+      "transparent": true,
+      "type": "gauge"
+    },
+    {
+      "datasource": null,
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {},
+          "mappings": [],
+          "max": 104500,
+          "min": 101300,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "#EAB839",
+                "value": 103000
+              },
+              {
+                "color": "red",
+                "value": 103750
+              }
+            ]
+          },
+          "unit": "P"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 6,
+        "x": 12,
+        "y": 4
+      },
+      "id": 14,
+      "options": {
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showThresholdLabels": false,
+        "showThresholdMarkers": true,
+        "text": {}
+      },
+      "pluginVersion": "7.4.3",
+      "targets": [
+        {
+          "format": "time_series",
+          "group": [],
+          "metricColumn": "none",
+          "rawQuery": false,
+          "rawSql": "SELECT\n  Datetime AS \"time\",\n  Pressure\nFROM ESP32\nWHERE\n  $__timeFilter(Datetime)\nORDER BY Datetime",
+          "refId": "A",
+          "select": [
+            [
+              {
+                "params": [
+                  "Pressure"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "table": "ESP32",
+          "timeColumn": "Datetime",
+          "timeColumnType": "timestamp",
+          "where": [
+            {
+              "name": "$__timeFilter",
+              "params": [],
+              "type": "macro"
+            }
+          ]
+        }
+      ],
+      "title": "Pressure",
+      "transparent": true,
+      "type": "gauge"
+    },
+    {
+      "datasource": null,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 2,
+        "w": 6,
+        "x": 18,
+        "y": 4
+      },
+      "id": 18,
+      "options": {
+        "content": "# Aprox. Altitude:\n",
+        "mode": "markdown"
+      },
+      "pluginVersion": "7.4.3",
+      "targets": [
+        {
+          "format": "time_series",
+          "group": [],
+          "metricColumn": "none",
+          "rawQuery": false,
+          "rawSql": "SELECT\n  Datetime AS \"time\",\n  ID\nFROM ESP32\nWHERE\n  $__timeFilter(Datetime)\nORDER BY Datetime",
+          "refId": "A",
+          "select": [
+            [
+              {
+                "params": [
+                  "ID"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "table": "ESP32",
+          "timeColumn": "Datetime",
+          "timeColumnType": "timestamp",
+          "where": [
+            {
+              "name": "$__timeFilter",
+              "params": [],
+              "type": "macro"
+            }
+          ]
+        }
+      ],
+      "title": "",
+      "transparent": true,
+      "type": "text"
+    },
+    {
+      "datasource": null,
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {},
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "rgb(247, 250, 247)",
+                "value": null
+              }
+            ]
+          },
+          "unit": "lengthm"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 4,
+        "x": 18,
+        "y": 6
+      },
+      "id": 20,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "text": {},
+        "textMode": "auto"
+      },
+      "pluginVersion": "7.4.3",
+      "targets": [
+        {
+          "format": "time_series",
+          "group": [
+            {
+              "params": [
+                "15m",
+                "none"
+              ],
+              "type": "time"
+            }
+          ],
+          "metricColumn": "none",
+          "rawQuery": false,
+          "rawSql": "SELECT\n  $__timeGroupAlias(Datetime,15m),\n  avg(Altitude) AS \"Altitude\"\nFROM ESP32\nWHERE\n  $__timeFilter(Datetime)\nGROUP BY 1\nORDER BY $__timeGroup(Datetime,15m)",
+          "refId": "A",
+          "select": [
+            [
+              {
+                "params": [
+                  "Altitude"
+                ],
+                "type": "column"
+              },
+              {
+                "params": [
+                  "avg"
+                ],
+                "type": "aggregate"
+              },
+              {
+                "params": [
+                  "Altitude"
+                ],
+                "type": "alias"
+              }
+            ]
+          ],
+          "table": "ESP32",
+          "timeColumn": "Datetime",
+          "timeColumnType": "timestamp",
+          "where": [
+            {
+              "name": "$__timeFilter",
+              "params": [],
+              "type": "macro"
+            }
+          ]
+        }
+      ],
+      "title": "",
+      "transparent": true,
+      "type": "stat"
+    },
+    {
+      "aliasColors": {
+        "Temperature": "green"
+      },
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": null,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 9,
+        "w": 24,
+        "x": 0,
+        "y": 12
+      },
+      "hiddenSeries": false,
+      "id": 6,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 2,
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "7.4.3",
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "format": "time_series",
+          "group": [
+            {
+              "params": [
+                "1m",
+                "none"
+              ],
+              "type": "time"
+            }
+          ],
+          "metricColumn": "none",
+          "rawQuery": false,
+          "rawSql": "SELECT\n  $__timeGroupAlias(Datetime,1m),\n  avg(Temperature) AS \"Temperature\"\nFROM ESP32\nWHERE\n  $__timeFilter(Datetime)\nGROUP BY 1\nORDER BY $__timeGroup(Datetime,1m)",
+          "refId": "A",
+          "select": [
+            [
+              {
+                "params": [
+                  "Temperature"
+                ],
+                "type": "column"
+              },
+              {
+                "params": [
+                  "avg"
+                ],
+                "type": "aggregate"
+              },
+              {
+                "params": [
+                  "Temperature"
+                ],
+                "type": "alias"
+              }
+            ]
+          ],
+          "table": "ESP32",
+          "timeColumn": "Datetime",
+          "timeColumnType": "timestamp",
+          "where": [
+            {
+              "name": "$__timeFilter",
+              "params": [],
+              "type": "macro"
+            }
+          ]
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "Temperature",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "transparent": true,
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:1860",
+          "format": "celsius",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "$$hashKey": "object:1861",
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {
+        "Humidity": "yellow"
+      },
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": null,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 21
+      },
+      "hiddenSeries": false,
+      "id": 4,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 2,
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "7.4.3",
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "format": "time_series",
+          "group": [
+            {
+              "params": [
+                "1m",
+                "none"
+              ],
+              "type": "time"
+            }
+          ],
+          "metricColumn": "none",
+          "rawQuery": false,
+          "rawSql": "SELECT\n  $__timeGroupAlias(Datetime,1m),\n  avg(Humidity) AS \"Humidity\"\nFROM ESP32\nWHERE\n  $__timeFilter(Datetime)\nGROUP BY 1\nORDER BY $__timeGroup(Datetime,1m)",
+          "refId": "A",
+          "select": [
+            [
+              {
+                "params": [
+                  "Humidity"
+                ],
+                "type": "column"
+              },
+              {
+                "params": [
+                  "avg"
+                ],
+                "type": "aggregate"
+              },
+              {
+                "params": [
+                  "Humidity"
+                ],
+                "type": "alias"
+              }
+            ]
+          ],
+          "table": "ESP32",
+          "timeColumn": "Datetime",
+          "timeColumnType": "timestamp",
+          "where": [
+            {
+              "name": "$__timeFilter",
+              "params": [],
+              "type": "macro"
+            }
+          ]
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "Humidity",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "transparent": true,
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:1383",
+          "format": "humidity",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "$$hashKey": "object:1384",
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {
+        "Pressure": "red"
+      },
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": null,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 21
+      },
+      "hiddenSeries": false,
+      "id": 8,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 2,
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "7.4.3",
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "format": "time_series",
+          "group": [
+            {
+              "params": [
+                "1m",
+                "none"
+              ],
+              "type": "time"
+            }
+          ],
+          "metricColumn": "none",
+          "rawQuery": false,
+          "rawSql": "SELECT\n  $__timeGroupAlias(Datetime,1m),\n  avg(Pressure) AS \"Pressure\"\nFROM ESP32\nWHERE\n  $__timeFilter(Datetime)\nGROUP BY 1\nORDER BY $__timeGroup(Datetime,1m)",
+          "refId": "A",
+          "select": [
+            [
+              {
+                "params": [
+                  "Pressure"
+                ],
+                "type": "column"
+              },
+              {
+                "params": [
+                  "avg"
+                ],
+                "type": "aggregate"
+              },
+              {
+                "params": [
+                  "Pressure"
+                ],
+                "type": "alias"
+              }
+            ]
+          ],
+          "table": "ESP32",
+          "timeColumn": "Datetime",
+          "timeColumnType": "timestamp",
+          "where": [
+            {
+              "name": "$__timeFilter",
+              "params": [],
+              "type": "macro"
+            }
+          ]
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "Pressure",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "transparent": true,
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:2109",
+          "format": "pressurepa",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "$$hashKey": "object:2110",
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    }
+  ],
+  "refresh": "5s",
+  "schemaVersion": 27,
+  "style": "dark",
+  "tags": [],
+  "templating": {
+    "list": [
+      {
+        "allValue": null,
+        "current": {},
+        "datasource": null,
+        "definition": "",
+        "description": null,
+        "error": null,
+        "hide": 0,
+        "includeAll": false,
+        "label": null,
+        "multi": false,
+        "name": "query0",
+        "options": [],
+        "query": "",
+        "refresh": 0,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "tagValuesQuery": "",
+        "tags": [],
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
+      }
+    ]
+  },
+  "time": {
+    "from": "now-1h",
+    "to": "now"
+  },
+  "timepicker": {},
+  "timezone": "",
+  "title": "ESP32",
+  "uid": "UuNt3lwGz",
+  "version": 6
+}
